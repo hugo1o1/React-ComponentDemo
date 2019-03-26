@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../build/react.development.js"></script>
+    <script src="../build/react-dom.development.js"></script>
+    <script src="../build/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<script type="text/babel">
+class Greeting extends React.Component{
+    constructor(props){
+        super(props);
+        this.state={
+            islogin: false,
+          
+        }
+        this.handleclick=this.handleclick.bind(this);
+        
+            }
+
+    handleclick(){
+        this.setState((state)=>({
+               islogin:!state.islogin
+              
+        }))
+    }
+  
+    render() {
+        return(
+               
+        <div>
+        <p>
+    { this.state.islogin? '你好，朋友':'请先登录哦'}
+        </p>
+       <button onClick={this.handleclick}>
+       {this.state.islogin? '退出':'登录'}
+      </button>
+        </div>
+        )
+    }
+}
+ReactDOM.render(  
+    <Greeting/>,
+    document.getElementById("greeting")
+);
+  
+</script>
+
+<body>
+    <div id="greeting"></div>
+</body>
+
+</html>

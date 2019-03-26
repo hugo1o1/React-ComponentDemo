@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../build/react.development.js"></script>
+    <script src="../build/react-dom.development.js"></script>
+    <script src="../build/babel.min.js"></script>
+    <title>Document</title>
+</head>
+<script type="text/babel">
+const numbers = [1, 2, 3, 4, 5];
+const listItems = numbers.map((number) =>
+  <li  key={number.toString()}>
+  {number}</li>
+);
+
+ReactDOM.render(
+    <ul>{listItems}</ul>,
+    document.getElementById('example')
+);
+</script>
+<body>
+    <div id="example">
+
+    </div>
+</body>
+</html>

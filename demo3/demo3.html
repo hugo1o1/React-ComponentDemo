@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="../build/react.development.js"></script>
+    <script src="../build/react-dom.development.js"></script>
+    <script src="../build/babel.min.js"></script>
+    <title>Document</title>
+</head>
+
+<body>
+    <div id="root" class="example"></div>
+    <script type="text/babel">
+      class Toggle extends React.Component {
+      constructor(props){
+        super(props);
+        this.state={
+          news: "你好，这是一个react 调试",
+          isToggleON:true
+        }
+        this.handleclick = this.handleclick.bind(this);
+      }
+      
+      handleclick(){
+         this.setState(state => ({
+          isToggleON: !state.isToggleON
+         }));
+      }
+      render(){
+        return(
+          <div>
+          <p>
+          {this.state.news}
+          </p>
+          <button onClick={ this.handleclick}>
+          {
+            this.state.isToggleON? 'on':'off'
+          }
+          </button>
+        </div>
+        );
+      }
+      }
+    
+      ReactDOM.render(
+         <Toggle />,
+         document.getElementById("root")
+     
+      );
+     </script>
+</body>
+
+</html>
